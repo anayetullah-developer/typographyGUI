@@ -13,12 +13,13 @@ function App() {
   const [typography, setTypography] = useState({
     fontFamily: "Arial, sans-serif",
     fontSize: "16px",
-    fontWeight: "normal",
-    textTransform: "none",
+    fontWeight: 400,
+    fontStyle: "normal",
     textDecoration: "none",
     lineHeight: "1.5",
-    letterSpacing: "normal",
+    letterSpacing: "normal", // Default letter spacing is 'normal'
     wordSpacing: "normal",
+    textTransform: "none",
   });
 
   const updateTypography = (property, value) => {
@@ -240,7 +241,7 @@ function App() {
 
                 <div className="mt-3">
                   <div className="flex justify-between gap-5 mb-3">
-                    <label className="text-sm">Size</label>
+                    <label className="text-sm">Line-height</label>
                     <div className="relative w-10 inline-block">
                       <select
                         value={typography.textTransform}
@@ -265,11 +266,12 @@ function App() {
                     <div className="W-4/5">
                       <input
                         type="range"
-                        min="12"
-                        max="100"
-                        value={parseInt(typography.fontSize)}
+                        min="0.1"
+                        max="10"
+                        step="0.1"
+                        value={parseFloat(typography.lineHeight)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("lineHeight", e.target.value)
                         }
                         className=""
                       />
@@ -277,20 +279,21 @@ function App() {
                     <div className="W-1/5">
                       <input
                         type="number"
-                        min="12"
-                        max="72"
-                        value={parseInt(typography.fontSize)}
+                        min="0.1"
+                        max="10"
+                        step="0.1"
+                        value={parseFloat(typography.lineHeight)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("lineHeight", e.target.value)
                         }
-                        className="border w-10 text-xs rounded p-1"
+                        className=""
                       />
                     </div>
                   </div>
                 </div>
                 <div className="mt-3">
                   <div className="flex justify-between gap-5 mb-3">
-                    <label className="text-sm">Size</label>
+                    <label className="text-sm">Letter Spacing</label>
                     <div className="relative w-10 inline-block">
                       <select
                         value={typography.textTransform}
@@ -315,11 +318,13 @@ function App() {
                     <div className="W-4/5">
                       <input
                         type="range"
-                        min="12"
-                        max="100"
-                        value={parseInt(typography.fontSize)}
+                        min="-5"
+                        max="10"
+                        step="0.1"
+                        value={parseFloat(typography.letterSpacing)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("letterSpacing", e.target.value + "px"
+                          )
                         }
                         className=""
                       />
@@ -327,20 +332,21 @@ function App() {
                     <div className="W-1/5">
                       <input
                         type="number"
-                        min="12"
-                        max="72"
-                        value={parseInt(typography.fontSize)}
+                        min="-5"
+                        max="10"
+                        step="0.1"
+                        value={parseFloat(typography.letterSpacing)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("letterSpacing", e.target.value + "px")
                         }
-                        className="border w-10 text-xs rounded p-1"
+                        className=""
                       />
                     </div>
                   </div>
                 </div>
                 <div className="mt-3">
                   <div className="flex justify-between gap-5 mb-3">
-                    <label className="text-sm">Size</label>
+                    <label className="text-sm">Word Spacing</label>
                     <div className="relative w-10 inline-block">
                       <select
                         value={typography.textTransform}
@@ -365,11 +371,11 @@ function App() {
                     <div className="W-4/5">
                       <input
                         type="range"
-                        min="12"
+                        min="0"
                         max="100"
-                        value={parseInt(typography.fontSize)}
+                        value={parseFloat(typography.wordSpacing)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("wordSpacing", e.target.value + "px")
                         }
                         className=""
                       />
@@ -377,45 +383,17 @@ function App() {
                     <div className="W-1/5">
                       <input
                         type="number"
-                        min="12"
-                        max="72"
-                        value={parseInt(typography.fontSize)}
+                        min="0"
+                        max="100"
+                        value={parseFloat(typography.wordSpacing)}
                         onChange={(e) =>
-                          updateTypography("fontSize", e.target.value + "px")
+                          updateTypography("wordSpacing", e.target.value + "px")
                         }
-                        className="border w-10 text-xs rounded p-1"
+                        className="w-1/2 ml-2"
                       />
                     </div>
                   </div>
-                </div>
-
-                <div className="text-sm mt-4">
-                  <label>Font Family: </label>
-                  <input
-                    type="text"
-                    value={typography.fontFamily}
-                    onChange={(e) =>
-                      updateTypography("fontFamily", e.target.value)
-                    }
-                  />
-                </div>
-                <div className="text-sm mt-2">
-                  <label>Font Size: </label>
-                  <input
-                    type="text"
-                    value={typography.fontSize}
-                    onChange={(e) =>
-                      updateTypography("fontSize", e.target.value)
-                    }
-                  />
-                </div>
-                {/* Add similar inputs for other typography options */}
-                <button
-                  className="bg-blue-500 text-white rounded p-2 mt-2"
-                  onClick={togglePopover}
-                >
-                  Close
-                </button>
+                </div>                
               </div>
             </div>
           )}
