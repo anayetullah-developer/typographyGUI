@@ -8,3 +8,16 @@
     }
   }
 
+  input[type="range"]::-webkit-slider-thumb
+  {
+    -webkit-appearance: none; 
+    width: 18px; 
+    height: 18px; 
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #D5D8DC;
+    cursor: pointer; 
+  }
+
+  
+    
