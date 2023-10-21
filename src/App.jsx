@@ -41,8 +41,8 @@ function App() {
     fontStyle: "normal",
     textDecoration: "none",
     lineHeight: "1.5",
-    letterSpacing: "normal",
-    wordSpacing: "normal",
+    letterSpacing: "0px",
+    wordSpacing: "0px",
     textTransform: "none",
   });
 
@@ -129,13 +129,7 @@ function App() {
                   <div className="flex justify-between gap-5 mb-3">
                     <label className="text-sm">Size</label>
                     <div className="relative w-10 inline-block">
-                      <select
-                        value={typography.textTransform}
-                        onChange={(e) =>
-                          updateTypography("textTransform", e.target.value)
-                        }
-                        className="border rounded p-1 appearance-none text-[10px] w-10"
-                      >
+                      <select className="border rounded p-1 appearance-none text-[10px] w-10">
                         <option value="none">px</option>
                         <option value="uppercase">em</option>
                         <option value="lowercase">%</option>
@@ -276,13 +270,7 @@ function App() {
                   <div className="flex justify-between gap-5 mb-3">
                     <label className="text-sm">Line-height</label>
                     <div className="relative w-10 inline-block">
-                      <select
-                        value={typography.textTransform}
-                        onChange={(e) =>
-                          updateTypography("textTransform", e.target.value)
-                        }
-                        className="border rounded p-1 appearance-none text-[10px] w-10"
-                      >
+                      <select className="border rounded p-1 appearance-none text-[10px] w-10">
                         <option value="none">px</option>
                         <option value="uppercase">em</option>
                         <option value="lowercase">%</option>
@@ -331,13 +319,7 @@ function App() {
                   <div className="flex justify-between gap-5 mb-3">
                     <label className="text-sm">Letter Spacing</label>
                     <div className="relative w-10 inline-block">
-                      <select
-                        value={typography.textTransform}
-                        onChange={(e) =>
-                          updateTypography("textTransform", e.target.value)
-                        }
-                        className="border rounded p-1 appearance-none text-[10px] w-10"
-                      >
+                      <select className="border rounded p-1 appearance-none text-[10px] w-10">
                         <option value="none">px</option>
                         <option value="uppercase">em</option>
                         <option value="lowercase">%</option>
@@ -393,10 +375,6 @@ function App() {
                     <label className="text-sm">Word Spacing</label>
                     <div className="relative w-10 inline-block">
                       <select
-                        value={typography.textTransform}
-                        onChange={(e) =>
-                          updateTypography("textTransform", e.target.value)
-                        }
                         className="border rounded p-1 appearance-none text-[10px] w-10"
                       >
                         <option value="none">px</option>
