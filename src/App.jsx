@@ -6,12 +6,36 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { LiaAngleDownSolid } from "react-icons/lia";
 
 function App() {
+  const fontFamilies = [
+    "Arial",
+    "Verdana",
+    "Helvetica",
+    "Georgia",
+    "Times New Roman",
+    "Courier New",
+    "Lucida Console",
+    "Trebuchet MS",
+    "Palatino Linotype",
+    "Tahoma",
+    "Impact",
+    "Arial Black",
+    "Comic Sans MS",
+    "Copperplate",
+    "Brush Script MT",
+    "Lucida Handwriting",
+    "Geneva",
+    "Candara",
+    "Franklin Gothic Medium",
+    "Garamond",
+  ];
+
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const togglePopover = () => {
     setIsPopoverOpen(!isPopoverOpen);
   };
+
   const [typography, setTypography] = useState({
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Arial, ",
     fontSize: "16px",
     fontWeight: "400",
     fontStyle: "normal",
@@ -81,16 +105,17 @@ function App() {
                   <label className="text-xs">Family</label>
                   <div className="relative inline-block w-28">
                     <select
-                      value={typography.textTransform}
+                      value={typography.fontFamily}
                       onChange={(e) =>
-                        updateTypography("textTransform", e.target.value)
+                        updateTypography("fontFamily", e.target.value)
                       }
                       className="border rounded p-1 w-full appearance-none text-xs"
                     >
-                      <option value="none">None</option>
-                      <option value="uppercase">Uppercase</option>
-                      <option value="lowercase">Lowercase</option>
-                      <option value="capitalize">Capitalize</option>
+                      {fontFamilies.map((font, index) => (
+                        <option key={index} value={font}>
+                          {font}
+                        </option>
+                      ))}
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2">
                       <IoMdArrowDropdown />
@@ -421,7 +446,7 @@ function App() {
         {/* Content Display part */}
 
         <div className="p-8">
-          <p style={typography} className="mt-8">
+          <p style={typography} className="mt-4">
             Whereas disregard and contempt for human rights have resulted
           </p>
         </div>
