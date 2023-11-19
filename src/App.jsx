@@ -4,47 +4,15 @@ import { CiGlobe } from "react-icons/ci";
 import { GrPowerReset, GrAdd } from "react-icons/gr";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { LiaAngleDownSolid } from "react-icons/lia";
-
+import { fontFamilies, fontStyle } from "./data/data";
 function App() {
-  const fontFamilies = [
-    "Arial",
-    "Verdana",
-    "Helvetica",
-    "Georgia",
-    "Times New Roman",
-    "Courier New",
-    "Lucida Console",
-    "Trebuchet MS",
-    "Palatino Linotype",
-    "Tahoma",
-    "Impact",
-    "Arial Black",
-    "Comic Sans MS",
-    "Copperplate",
-    "Brush Script MT",
-    "Lucida Handwriting",
-    "Geneva",
-    "Candara",
-    "Franklin Gothic Medium",
-    "Garamond",
-  ];
-
+  
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const togglePopover = () => {
     setIsPopoverOpen(!isPopoverOpen);
   };
 
-  const [typography, setTypography] = useState({
-    fontFamily: "Arial, ",
-    fontSize: "16px",
-    fontWeight: "400",
-    fontStyle: "normal",
-    textDecoration: "none",
-    lineHeight: "1.5",
-    letterSpacing: "0px",
-    wordSpacing: "0px",
-    textTransform: "none",
-  });
+  const [typography, setTypography] = useState(fontStyle);
 
   const updateTypography = (property, value) => {
     setTypography({ ...typography, [property]: value });
@@ -65,7 +33,6 @@ function App() {
             <div className="flex">
               <div
                 className="border rounded-sm p-1 text-lg"
-                onClick={togglePopover}
               >
                 <CiGlobe />
               </div>
